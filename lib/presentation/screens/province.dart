@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:weather_app/config/router/routes.dart';
 import 'package:weather_app/date/counties.dart';
 
 class ProvinciesScreen extends StatefulWidget{
@@ -16,7 +15,7 @@ class _ProvinciesScreenState extends State<ProvinciesScreen>{
   Widget build(BuildContext context){
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/sky.jpg'),
             fit: BoxFit.cover
@@ -24,14 +23,14 @@ class _ProvinciesScreenState extends State<ProvinciesScreen>{
         ),
         child: Center(
           child: Padding(
-            padding: EdgeInsets.all(10.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.only(bottom: 10),
+                  padding: const EdgeInsets.only(bottom: 10),
                   child: GestureDetector(
                     onTap: () {
-                      context.push("/regions");
+                      context.push("/regions/2");
                     },
                     child: Stack(
                       alignment: Alignment.center,
@@ -46,7 +45,7 @@ class _ProvinciesScreenState extends State<ProvinciesScreen>{
                         ),
                         Text(
                           provincies["provincies"][2]["provincia"].toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 40,
                             shadows: [
@@ -62,10 +61,10 @@ class _ProvinciesScreenState extends State<ProvinciesScreen>{
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 10),
+                  padding: const EdgeInsets.only(bottom: 10),
                   child: GestureDetector(
                     onTap: () {
-                      context.push("/regions");
+                      context.push("/regions/0");
                     },
                     child: Stack(
                       alignment: Alignment.center,
@@ -80,7 +79,7 @@ class _ProvinciesScreenState extends State<ProvinciesScreen>{
                         ),
                         Text(
                             provincies["provincies"][0]["provincia"].toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 40,
                               shadows:[
@@ -96,10 +95,10 @@ class _ProvinciesScreenState extends State<ProvinciesScreen>{
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 10),
+                  padding: const EdgeInsets.only(bottom: 10),
                   child: GestureDetector(
                     onTap: () => {
-                      context.push("/regions")
+                      context.push("/regions/1")
                     },
                     child: Stack(
                       alignment: Alignment.center,
@@ -114,13 +113,12 @@ class _ProvinciesScreenState extends State<ProvinciesScreen>{
                         ),
                         Text(
                             provincies["provincies"][1]["provincia"].toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 40,
                               shadows: [
                                 Shadow(
                                   color: Colors.black,
-                                  offset: Offset(4, 4)
                                 )
                               ]
                             )

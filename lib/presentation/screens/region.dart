@@ -1,26 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:weather_app/config/router/routes.dart';
 import 'package:weather_app/date/counties.dart';
 
-class ComarquesScreen extends StatefulWidget{
-  const ComarquesScreen({super.key});
+class ComarquesScreen extends StatelessWidget{
+  final int provinceId;
+  const ComarquesScreen({super.key,required this.provinceId});
 
-  @override
-  _ComarquesScreenState createState() => _ComarquesScreenState();
-
-
-}
-
-class _ComarquesScreenState extends State<ComarquesScreen>{
   @override 
   Widget build(BuildContext context){
-    List<dynamic> comarques = provincies["provincies"][0]["comarques"];
+    List<dynamic> comarques = provincies["provincies"][provinceId]["comarques"];
 
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Comarques De Valencia",
           style: TextStyle(
             fontSize: 24,
@@ -30,7 +23,7 @@ class _ComarquesScreenState extends State<ComarquesScreen>{
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             context.go("/provinces");
           },
@@ -41,10 +34,10 @@ class _ComarquesScreenState extends State<ComarquesScreen>{
       body: ListView.builder(
         itemCount: comarques.length,
         itemBuilder: (context,index){
-            return Padding(padding: EdgeInsets.only(bottom: 10),
+            return Padding(padding: const EdgeInsets.only(bottom: 10),
               child: GestureDetector(
                 onTap: () => {
-                  context.push("/info_1")
+                  context.push("/info_1/${provinceId}/${index}")
                 },
                 child: Card(
                   child: Stack(
@@ -57,10 +50,10 @@ class _ComarquesScreenState extends State<ComarquesScreen>{
                         fit: BoxFit.cover,  
                       ),
                       Padding(
-                        padding: EdgeInsets.only(bottom: 10, left: 10),
+                        padding: const EdgeInsets.only(bottom: 10, left: 10),
                         child: Text(
                           comarques[index]["comarca"].toString(),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 25,
                             color: Colors.white,
                             shadows: [

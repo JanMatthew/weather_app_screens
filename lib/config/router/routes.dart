@@ -15,13 +15,20 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       name: 'regions',
-      path: '/regions',
-      builder: (context,state) => const ComarquesScreen()
+      path: '/regions/:provinceId',
+      builder: (context,state){ 
+        final int provinceId = int.parse(state.pathParameters['provinceId']!);
+        return ComarquesScreen(provinceId: provinceId);
+      }
     ),
     GoRoute(
       name: 'info comarca 1',
-      path: '/info_1',
-      builder: (context,state) => const InfoComarca1Screen()
+      path: '/info_1/:provinceId/:regionId',
+      builder: (context,state) {
+        final int provinceId = int.parse(state.pathParameters['provinceId']!);
+        final int regionId = int.parse(state.pathParameters['regionId']!);
+        return InfoComarca1Screen(provinceId: provinceId, regionId: regionId);
+      }
     ),
     GoRoute(
       name: 'info comarca 2',

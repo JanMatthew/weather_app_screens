@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:weather_app/config/router/routes.dart';
 import 'package:weather_app/date/counties.dart';
 
 class InfoComarca2Screen extends StatefulWidget{
@@ -20,14 +19,14 @@ class _InfoComarca2ScreenState extends State<InfoComarca2Screen>{
       appBar: AppBar(
         title: Text(
           comarca["comarca"],
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
             fontStyle: FontStyle.italic,
           ),
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             context.go("/regions");
           },
@@ -41,7 +40,7 @@ class _InfoComarca2ScreenState extends State<InfoComarca2Screen>{
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(bottom: 10,top: 10),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -62,7 +61,7 @@ class _InfoComarca2ScreenState extends State<InfoComarca2Screen>{
                   ],
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.only(bottom: 10),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -96,13 +95,13 @@ class _InfoComarca2ScreenState extends State<InfoComarca2Screen>{
               ),
               Container(
               width: double.infinity,
-              padding: EdgeInsets.symmetric(horizontal: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start, // Alinea los textos a la izquierda
                 children: [
                   Row(
                     children: [
-                      Padding(
+                      const Padding(
                         padding: EdgeInsets.only(right: 40),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -135,21 +134,21 @@ class _InfoComarca2ScreenState extends State<InfoComarca2Screen>{
                         children: [
                           Text(
                             comarca["poblacio"],
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 20,
                             ),
                           ),
-                          SizedBox(height: 5), // Espacio entre los textos
+                          const SizedBox(height: 5), // Espacio entre los textos
                           Text(
                             comarca["coordenades"][0].toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 20,
                             ),
                           ),
-                          SizedBox(height: 5), // Espacio entre los textos
+                          const SizedBox(height: 5), // Espacio entre los textos
                           Text(
                             comarca["coordenades"][0].toString(),
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 20,
                             ),
                           ),
@@ -161,36 +160,6 @@ class _InfoComarca2ScreenState extends State<InfoComarca2Screen>{
                 ],
               ),
             ),
-            Padding(
-                padding: EdgeInsets.only(left: 10,right: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    TextButton(
-                      onPressed: () => {
-                        context.go("/info_1")
-                      },
-                      child: Text(
-                        'Info',
-                        style: TextStyle(
-                          fontSize: 15
-                        ),
-                      )
-                    ),
-                    TextButton(
-                      onPressed: () => {
-                        
-                      },
-                      child: Text(
-                        'Oratge',
-                        style: TextStyle(
-                          fontSize: 15
-                        ),
-                      )
-                    ),
-                  ]
-                )
-              ),
             ],
           ),
       ),

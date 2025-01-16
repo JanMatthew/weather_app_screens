@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:weather_app/config/router/routes.dart';
 
 class LoginScreen extends StatefulWidget{
   const LoginScreen({super.key});
@@ -16,7 +15,7 @@ class _LoginScreenState extends State<LoginScreen>{
     return Scaffold(
 
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/sky.jpg'),
             fit: BoxFit.cover
@@ -74,19 +73,19 @@ class _LoginScreenState extends State<LoginScreen>{
                       ElevatedButton(
                         style: ElevatedButton.styleFrom( 
                           backgroundColor: Colors.blue,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 20,
                             vertical: 10
                           ),
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          minimumSize: Size(110, 20),
-                          maximumSize: Size(110, 50)
+                          minimumSize: const Size(110, 20),
+                          maximumSize: const Size(110, 50)
                         ),
                         onPressed: () {
                           context.push("/provinces");
@@ -96,36 +95,36 @@ class _LoginScreenState extends State<LoginScreen>{
                       ElevatedButton(
                         style: ElevatedButton.styleFrom( 
                           backgroundColor: Colors.blue,
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             horizontal: 20,
                             vertical: 10
                           ),
-                          textStyle: TextStyle(
+                          textStyle: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.bold,
                           ),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          minimumSize: Size(110, 20),
-                          maximumSize: Size(110, 50)
+                          minimumSize: const Size(110, 20),
+                          maximumSize: const Size(110, 50)
                         ),
                         onPressed: () {
                           showDialog(
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
-                                title: Text("Register"),
+                                title: const Text("Register"),
                                 content: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     TextFormField(
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                         labelText: 'Email',
                                       ),
                                     ),
                                     TextFormField(
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                         labelText: 'Password',
                                       ),
                                       obscureText: true,
@@ -137,13 +136,13 @@ class _LoginScreenState extends State<LoginScreen>{
                                     onPressed: () {
                                       context.pop();
                                     },
-                                    child: Text("Cancel"),
+                                    child: const Text("Cancel"),
                                   ),
                                   TextButton(
                                     onPressed: () {
                                       context.pop();
                                     },
-                                    child: Text("Register"),
+                                    child: const Text("Register"),
                                   ),
                                 ],
                               );

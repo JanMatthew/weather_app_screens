@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:weather_app/config/router/routes.dart';
 import 'package:weather_app/date/counties.dart';
 
-class InfoComarca1Screen extends StatefulWidget{
-  const InfoComarca1Screen({super.key});
-
+class InfoComarca1Screen extends StatefulWidget {
+  final int provinceId;
+  final int regionId;
+  const InfoComarca1Screen({super.key,required this.provinceId, required this.regionId});
+  
   @override
-  _InfoComarca1ScreenState createState() => _InfoComarca1ScreenState();
+  State<InfoComarca1Screen> createState()=>
+    _InfoComarca1State(provinceId: provinceId,regionId: regionId);
 }
 
-class _InfoComarca1ScreenState extends State<InfoComarca1Screen>{
-
+class _InfoComarca1State extends State<InfoComarca1Screen>{
+  final int provinceId;
+  final int regionId;
+  
+    
   int _currentIndex = 0;
-
-  final Map comarca = provincies["provincies"][0]["comarques"][0];
-  final String nombre = provincies["provincies"][0]["comarques"][0]["comarca"];
-
-
-  final List<Widget> _pages = [
+  Map get comarca => provincies["provincies"][provinceId]["comarques"][regionId];
+  
+  List<Widget> get _pages => [
     Center(
       child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,31 +29,31 @@ class _InfoComarca1ScreenState extends State<InfoComarca1Screen>{
                 width: double.infinity,
                 fit: BoxFit.cover,
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 10,bottom: 10,top: 20),
+               Padding(
+                padding: const EdgeInsets.only(left: 10,bottom: 10,top: 20),
                 child:  Text(
-                  nombre,
-                  style: TextStyle(
+                  comarca["comarca"],
+                  style: const TextStyle(
                     fontSize: 30,
                     color: Colors.grey
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 10,bottom: 10),
+               Padding(
+                padding: const EdgeInsets.only(left: 10,bottom: 10),
                 child: Text(
                   "Capital: " + comarca["capital"],
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(left: 10,right: 10),
+               Padding(
+                padding: const EdgeInsets.only(left: 10,right: 10),
               child: Text(
                 comarca["desc"],
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 15
                 ),
               )
@@ -60,19 +61,153 @@ class _InfoComarca1ScreenState extends State<InfoComarca1Screen>{
             ],
           ),
     ),
-    const Center(child: Text('L´oratge'))
-  ];
+    Center(
+          child: Column(
+            children: [
+              Image.asset(
+                "assets/rain.png",
+                width: double.infinity,
+                fit: BoxFit.cover,
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 10,top: 10),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.thermostat,
+                      size: 34,
+                      color: Colors.black,
+                    ),
+                    Text(
+                      "5.4º",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 30,
+                        color: Colors.grey
+                       ),
+                      ),
+                  ],
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(bottom: 10),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.air,
+                      size: 34,
+                      color: Colors.black,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 20,right: 20),
+                      child: Text(
+                        "9.4km/h",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold
+                        ),
+                        ),
+                    ),
+                        Text(
+                        "Ponent←",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold
+                        ),
+                        ),
+                  ],
+                ),
+              ),
+              Container(
+              width: double.infinity,
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start, // Alinea los textos a la izquierda
+                children: [
+                  Row(
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(right: 40),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Poblacio:",
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                            SizedBox(height: 5), // Espacio entre los textos
+                            Text(
+                              "Latitud:",
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                            SizedBox(height: 5), // Espacio entre los textos
+                            Text(
+                              "Longitud:",
+                              style: TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            comarca["poblacio"],
+                            style: const TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                          const SizedBox(height: 5), // Espacio entre los textos
+                          Text(
+                            comarca["coordenades"][0].toString(),
+                            style: const TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                          const SizedBox(height: 5), // Espacio entre los textos
+                          Text(
+                            comarca["coordenades"][0].toString(),
+                            style: const TextStyle(
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+            ],
+          ),
+      ),
+    ];
+
+    _InfoComarca1State({required this.provinceId, required this.regionId});
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+    
       appBar: AppBar(title: const Text('Info')),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex, // El índice de la pestaña seleccionada
         onTap: (int index) {
           setState(() {
-            _currentIndex = index; // Cambia la pestaña seleccionada
+            _currentIndex = index;  
           });
         },
         items: const [
