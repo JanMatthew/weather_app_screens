@@ -32,8 +32,8 @@ class _InfoComarca2ScreenState extends State<InfoComarca2Screen>{
           },
         ),
       ),
-      body: Container(
-          child: Column(
+      body: 
+          Column(
             children: [
               Image.asset(
                 "assets/rain.png",
@@ -162,7 +162,6 @@ class _InfoComarca2ScreenState extends State<InfoComarca2Screen>{
             ),
             ],
           ),
-      ),
-    );
+      );
   }
 }

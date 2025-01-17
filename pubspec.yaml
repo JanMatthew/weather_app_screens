@@ -10,6 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   go_router: ^14.3.0
+  cupertino_icons: ^1.0.2
+  http: ^0.13.5
+  geolocator: ^9.0.2
 
 dev_dependencies:
   flutter_test:
@@ -22,3 +25,10 @@ flutter:
     - assets/icon/weatherIcon.png
     - assets/sky.jpg
     - assets/rain.png
+    - assets/icons/png/lluvia.png
+    - assets/icons/png/lluvia_debil.png
+    - assets/icons/png/nieve.png
+    - assets/icons/png/nublado.png
+    - assets/icons/png/soleado.png
+    - assets/icons/png/poco_nublado.png
+    

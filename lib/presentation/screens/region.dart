@@ -37,7 +37,7 @@ class ComarquesScreen extends StatelessWidget{
             return Padding(padding: const EdgeInsets.only(bottom: 10),
               child: GestureDetector(
                 onTap: () => {
-                  context.push("/info_1/${provinceId}/${index}")
+                  context.push("/info_1/$provinceId/$index")
                 },
                 child: Card(
                   child: Stack(

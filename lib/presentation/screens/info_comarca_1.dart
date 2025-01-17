@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/date/counties.dart';
+import 'package:weather_app/widgets/widget_weather.dart';
 
 class InfoComarca1Screen extends StatefulWidget {
   final int provinceId;
@@ -64,64 +65,7 @@ class _InfoComarca1State extends State<InfoComarca1Screen>{
     Center(
           child: Column(
             children: [
-              Image.asset(
-                "assets/rain.png",
-                width: double.infinity,
-                fit: BoxFit.cover,
-              ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 10,top: 10),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.thermostat,
-                      size: 34,
-                      color: Colors.black,
-                    ),
-                    Text(
-                      "5.4º",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 30,
-                        color: Colors.grey
-                       ),
-                      ),
-                  ],
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 10),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(
-                      Icons.air,
-                      size: 34,
-                      color: Colors.black,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20,right: 20),
-                      child: Text(
-                        "9.4km/h",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold
-                        ),
-                        ),
-                    ),
-                        Text(
-                        "Ponent←",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 25,
-                          fontWeight: FontWeight.bold
-                        ),
-                        ),
-                  ],
-                ),
-              ),
+              WidgetWeather(latitud: comarca["coordenades"][0], longitud: comarca["coordenades"][1]),
               Container(
               width: double.infinity,
               padding: const EdgeInsets.symmetric(horizontal: 15),
