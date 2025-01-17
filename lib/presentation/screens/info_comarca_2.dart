@@ -147,7 +147,7 @@ class _InfoComarca2ScreenState extends State<InfoComarca2Screen>{
                           ),
                           const SizedBox(height: 5), // Espacio entre los textos
                           Text(
-                            comarca["coordenades"][0].toString(),
+                            comarca["coordenades"][1].toString(),
                             style: const TextStyle(
                               fontSize: 20,
                             ),

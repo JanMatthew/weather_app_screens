@@ -22,7 +22,7 @@ class _WidgetWeatherState extends State<WidgetWeather> {
   void initState() {
     super.initState();
 
-    info = obtenerClima(longitud: widget.longitud ?? 0.0, latitud: widget.longitud ?? 0.0);
+    info = obtenerClima(longitud: widget.longitud ?? 0.0, latitud: widget.latitud ?? 0.0);
   }
 
   @override
